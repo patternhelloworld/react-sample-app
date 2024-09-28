@@ -1,8 +1,8 @@
 # ab-knife-front
 
 ## Installation
-- Node Version : 18.20.4 사용
-- Node 프로젝트는 다음 명령어들을 통해 언제나 초기화->서버 띄우기 가능하다.
+- Node Version: 18.20.4
+- The Node project can always be initialized and started with the following commands.
 ```shell
 # Win
 Remove-Item -Path ".\node_modules" -Recurse -Force
@@ -10,13 +10,14 @@ Remove-Item -Path ".\node_modules" -Recurse -Force
 sudo rm -rf node_modules
 
 npm clean cache --force
-npm install --legacy-peer-deps # --legacy-peer-deps 는 권장되지 않으나 현재 "ag-grid-*" 라이브러리 들이 react 16.8 를 사용하기 때문에...
+npm install --legacy-peer-deps # Note: --legacy-peer-deps is not recommended, but necessary because the current "ag-grid-*" libraries are using React 16.8...
 npm run start
 ```
 
-## 모듈 개발
+## Developing a module
 
-### main_menu 테이블과  sub_menu 테이블에 path 와 key 를 세팅
+### main_menu and sub_menu tables are updated to set path and key values as follows:
+
 - main_menu
 
 ![img_1.png](reference/img_1.png)
@@ -25,7 +26,7 @@ npm run start
 
 ![img.png](reference/img.png)
 
-- [중요] RecoilKey 는 각각 CodesExtColors, CodesIntColors 가 된다.
+- [Important] RecoilKey will be set as CodesExtColors and CodesIntColors, respectively.
 
 ### 권한 설정
 
@@ -36,14 +37,14 @@ npm run start
 
 ### 모듈 구성
 
-- Component 는 다음 구조를 벗어나지 않는다.
-  - [1] 설정 -> [2] Recoil -> [3] State -> [4] Refresh -> [5] Hook -> [6] Fetch 함수 -> [7] Event Handler -> [8] LifeCycle -> [9] View
-- enableMantineFetch State 는 List API 호출 후 반드시 finally 로 false 로 해줘야 한다.
-  - React 는 state 가 대상이 가진 값과 같은 값이 전달 될 경우 무시된다. (다시 말해, 예를 들어 검색 버튼 클릭을 연속 클릭하면 API 가 호출되지 않을 수 있다. 왜냐하면, enableMantineFetch 가 연속으로 두 번 true 로 전달되기 때문이다.)
-  - [예시 2] 에서는 List 의 fetch API 가  useMantineFetch 함수 안에서 enableMantineFetch 가 false 로 된다.
-- 모든 모듈들은 'routes' 폴더에 있다.
-- 전체 공통 모듈은 모두 shared 폴더에 있다.
-- ````Local``` 로 끝나는 파일 명들은 recoil 이 아닌 state 를 사용한다. (다시 말해, Recoil 처럼 다른 탭에 갔다오면 정보가 유지되는 것이 아니다.)
+- The Component structure follows the sequence below:
+ - [1] Configuration -> [2] Recoil -> [3] State -> [4] Refresh -> [5] Hook -> [6] Fetch Function -> [7] Event Handler -> [8] LifeCycle -> [9] View
+- The enableMantineFetch state must be set to false in the finally block after calling the List API.
+- In React, if the same value as the current state is set, the state update is ignored. (In other words, if the search button is clicked consecutively, the API may not be called because enableMantineFetch is set to true twice in a row.)
+- [Example 2] shows that the List's fetch API sets enableMantineFetch to false inside the useMantineFetch function.
+- All modules are located in the 'routes' folder.
+- All common modules are located in the 'shared' folder.
+- Files ending with Local use state instead of Recoil. (In other words, unlike Recoil, data is not retained if you navigate to another tab.)
 
 - [예시 1]
 ```javascript
