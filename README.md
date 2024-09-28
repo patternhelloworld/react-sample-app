@@ -22,20 +22,15 @@ npm run start
 
 ![img_1.png](reference/img_1.png)
  
-- sub_menu
 
-![img.png](reference/img.png)
-
-- [Important] RecoilKey will be set as CodesExtColors and CodesIntColors, respectively.
-
-### 권한 설정
+### Set permissions
 
 ![img.png](reference/img3.png)
 
 
-## 소스
+## Source Code
 
-### 모듈 구성
+### Module
 
 - The Component structure follows the sequence below:
  - [1] Configuration -> [2] Recoil -> [3] State -> [4] Refresh -> [5] Hook -> [6] Fetch Function -> [7] Event Handler -> [8] LifeCycle -> [9] View
