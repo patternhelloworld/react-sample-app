@@ -14,19 +14,6 @@ npm install --legacy-peer-deps # Note: --legacy-peer-deps is not recommended, bu
 npm run start
 ```
 
-## Developing a module
-
-### main_menu and sub_menu tables are updated to set path and key values as follows:
-
-- main_menu
-
-![img_1.png](reference/img_1.png)
- 
-
-### Set permissions
-
-![img.png](reference/img3.png)
-
 
 ## Source Code
 
